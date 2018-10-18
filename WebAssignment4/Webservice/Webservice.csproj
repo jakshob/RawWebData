@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\WebDataAssignment4\Assignment4.Tests\Assignment4.Tests.csproj" />
+    <ProjectReference Include="..\..\..\WebDataAssignment4\Assignment4\DataService.csproj" />
+  </ItemGroup>
+
+</Project>
