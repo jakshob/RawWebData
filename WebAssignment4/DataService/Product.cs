@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace WebServer
 {
@@ -12,8 +8,8 @@ namespace WebServer
     {
         [Column("productid")]
         public int Id { get; set; }
-
-        public int UnitPrice { get; set; }
+		
+		public int UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
         public string QuantityPerUnit { get; set; }
 

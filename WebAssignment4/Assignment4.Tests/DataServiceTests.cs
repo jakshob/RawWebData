@@ -1,12 +1,13 @@
 using System;
+using System.Linq;
 using Xunit;
 
 namespace WebServer.Tests
 {
     public class DataServiceTests
     {
-        // Categories 
-        
+        /* Categories */
+
         [Fact]
         public void Category_Object_HasIdNameAndDescription()
         {
@@ -15,7 +16,7 @@ namespace WebServer.Tests
             Assert.Null(category.Name);
             Assert.Null(category.Description);
         }
-        /*
+
         [Fact]
         public void GetAllCategories_NoArgument_ReturnsAllCategories()
         {
@@ -91,7 +92,6 @@ namespace WebServer.Tests
             Assert.False(result);
         }
 
-
         // products 
 
         [Fact]
@@ -111,18 +111,7 @@ namespace WebServer.Tests
             var service = new DataService();
             var product = service.GetProduct(1);
             Assert.Equal("Chai", product.Name);
-            Assert.Equal("Beverages", product.CategoryName);
-        }
-
-        [Fact]
-        public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
-        {
-            var service = new DataService();
-            var products = service.GetProductByCategory(1);
-            Assert.Equal(12, products.Count);
-            Assert.Equal("Chai", products.First().ProductName);
-            Assert.Equal("Beverages", products.First().CategoryName);
-            Assert.Equal("Lakkalikööri", products.Last().ProductName);
+            Assert.Equal("Beverages", product.Category.Name);
         }
 
         [Fact]
@@ -134,6 +123,18 @@ namespace WebServer.Tests
             Assert.Equal("Chef Anton's Cajun Seasoning", products.First().Name);
             Assert.Equal("Guaraná Fantástica", products.Last().Name);
         }
+
+        [Fact]
+        public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
+        {
+            var service = new DataService();
+            var products = service.GetProductByCategory(1);
+            Assert.Equal(12, products.Count);
+            Assert.Equal("Chai", products.First().Name);
+            Assert.Equal("Beverages", products.First().Category.Name);
+            Assert.Equal("Lakkalikööri", products.Last().Name);
+        }
+
 
         // orders 
         [Fact]
@@ -165,7 +166,6 @@ namespace WebServer.Tests
             var orders = service.GetOrders();
             Assert.Equal(830, orders.Count);
         }
-
 
         // orderdetails 
         [Fact]
@@ -202,7 +202,5 @@ namespace WebServer.Tests
             Assert.Equal(14, orderDetails.First().UnitPrice);
             Assert.Equal(12, orderDetails.First().Quantity);
         }
-    */    
     }
-    
 }
