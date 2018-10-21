@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\WebDataAssignment4\Assignment4.Tests\Assignment4.Tests.csproj" />
-    <ProjectReference Include="..\..\..\WebDataAssignment4\Assignment4\DataService.csproj" />
+    <ProjectReference Include="..\Assignment4.Tests\Assignment4.Tests.csproj" />
+    <ProjectReference Include="..\DataService\DataService.csproj" />
   </ItemGroup>
 
 </Project>
