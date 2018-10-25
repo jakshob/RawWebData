@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-
-namespace WebServer
+namespace DataService
 {
-    [Table("orders")]
     public class Order
     {
         public int Id { get; set; }

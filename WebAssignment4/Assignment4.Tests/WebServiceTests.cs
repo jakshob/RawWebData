@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
-namespace WebServer.Tests
+namespace Assignment4.Tests
 {
     public class WebServiceTests
     {
-        private const string CategoriesApi = "http://localhost:50795/api/categories";
-        private const string ProductsApi = "http://localhost:50795/api/products";
+        private const string CategoriesApi = "http://localhost:5001/api/categories";
+        //private const string ProductsApi = "http://localhost:5001/api/products";
 
         /* /api/categories */
 
@@ -26,7 +26,7 @@ namespace WebServer.Tests
             Assert.Equal("Seafood", data.Last()["name"]);
         }
 
-        /*
+        
         [Fact]
         public void ApiCategories_GetWithValidCategoryId_OkAndCategory()
         {

@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using WebServer;
 
-
-namespace WebServer
+namespace DataService
 {
-    [Table("orderdetails")]
     public class OrderDetails
     {
         public int OrderId { get; set; }

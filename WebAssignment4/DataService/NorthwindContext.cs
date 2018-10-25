@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebServer;
 
-
-namespace WebServer
+namespace DataService
 {
     public class NorthwindContext : DbContext
     {
@@ -25,7 +25,7 @@ namespace WebServer
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Category>().ToTable("categories");
-            //modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
+            modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
             modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
             modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
 

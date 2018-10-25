@@ -12,6 +12,8 @@ namespace Webservice
 {
     public class Program
     {
+        private const string Urls = "http://localhost:5001/";
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
@@ -20,6 +22,6 @@ namespace Webservice
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:5001/");
+                .UseUrls(Urls);
     }
 }

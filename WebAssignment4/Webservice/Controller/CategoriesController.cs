@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataService;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using WebServer;
-using Webserver.Models;
 
-namespace WebService.Controllers
+namespace Webservice.Controller
 {
     [Route("api/categories")]
     [ApiController]
-    public class CategoriesController : Controller
+    public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     {
-        DataService _dataService;
+        IDataService _dataService;
 
-        public CategoriesController(DataService dataService)
+        public CategoriesController(IDataService dataService)
         {
             _dataService = dataService;
         }
@@ -25,6 +19,7 @@ namespace WebService.Controllers
         public IActionResult GetCategories()
         {
             var data = _dataService.GetCategories();
+
 
             return Ok(data);
         }
@@ -35,6 +30,13 @@ namespace WebService.Controllers
             var cat = _dataService.GetCategory(id);
             if (cat == null) return NotFound();
             return Ok(cat);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteData(int id)
+        {
+            var data = _dataService.DeleteCategory(id);
+            return Ok(data);
         }
 /*
         [HttpPost]
@@ -53,4 +55,6 @@ namespace WebService.Controllers
         }
         */
     }
+
+
 }

@@ -1,13 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WebServer;
 
-
-namespace WebServer
+namespace DataService
 {
-    public class DataService
+    public interface IDataService
     {
+        List<Category> GetCategories();
+        Category GetCategory(int id);
+        Category CreateCategory(string categoryName, string description);
+        Category UpdateCategory(int id, string categoryName, string description);
+        bool DeleteCategory(int id);
+        List<Product> GetProducts(int page, int pageSize);
+        Product GetProduct(int id);
+        int GetNumberOfProducts();
+    }
 
-
+    public class DataService : IDataService
+    {
         public List<Category> GetCategories()
         {
             using (var db = new NorthwindContext())
@@ -53,6 +63,11 @@ namespace WebServer
 
         }
 
+        Category IDataService.UpdateCategory(int id, string categoryName, string description)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public bool DeleteCategory(int inputCatId)
         {
 
@@ -75,6 +90,11 @@ namespace WebServer
                 }
             }
 
+        }
+
+        public List<Product> GetProducts(int page, int pageSize)
+        {
+            throw new System.NotImplementedException();
         }
 
         public bool UpdateCategory(int inputCatId, string updateName, string updateDesc)
@@ -115,6 +135,11 @@ namespace WebServer
                 return tempProduct;
             }
 
+        }
+
+        public int GetNumberOfProducts()
+        {
+            throw new System.NotImplementedException();
         }
 
         public List<Product> GetProductByName(string searchQueryString)
@@ -206,8 +231,8 @@ namespace WebServer
                 var tempList = new List<Order>();
                 foreach (Order ord in db.Orders)
                 {
-                    var tempOrd = GetOrder(ord.Id);
-                    tempList.Add(tempOrd);
+                    //var tempOrd = GetOrder(ord.Id); <- Ikke nødvendigt
+                    tempList.Add(ord);
                 }
                 return tempList;
             }
