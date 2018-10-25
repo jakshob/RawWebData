@@ -1,6 +1,5 @@
 ﻿using DataService;
 using Microsoft.AspNetCore.Mvc;
-using WebServer;
 
 namespace Webservice.Controller
 {

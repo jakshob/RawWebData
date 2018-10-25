@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace WebServer
+﻿namespace DataService
 {
     public class Category
     {

@@ -1,6 +1,4 @@
-﻿using WebServer;
-
-namespace DataService
+﻿namespace DataService
 {
     public class Product
     {

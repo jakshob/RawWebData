@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using DataService;
-using WebServer;
 using Xunit;
 
 namespace Assignment4.Tests
